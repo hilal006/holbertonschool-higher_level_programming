@@ -1,27 +1,25 @@
-#!/usr/bin/python3
-"""
-Module that prints text with 2 new lines after ., ? and :
-"""
-
-
 def text_indentation(text):
     """
     Prints text with 2 new lines after ., ? and :
     """
-
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
-    new_line = True
+    # This flag tracks if we are at the start of a new line
+    # to help us skip leading spaces.
+    skip_space = True
 
     for char in text:
-        if new_line and char == " ":
+        if skip_space and char == " ":
             continue
-
+        
+        # Once we hit a non-space character, stop skipping
+        skip_space = False
+        
         print(char, end="")
 
+        # If we hit a special character, print newlines and 
+        # set flag to skip the next spaces
         if char in ".?:":
             print("\n")
-            new_line = True
-        else:
-            new_line = False
+            skip_space = True
