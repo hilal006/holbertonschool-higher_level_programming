@@ -1,9 +1,6 @@
 #!/usr/bin/python3
-
 """
-    This module prints a square with the character # with the
-    following methods:
-    print_square
+This module prints a square with the character #.
 """
 
 
@@ -11,12 +8,17 @@ def print_square(size):
     """
     Prints a square with the character #.
     """
-    if type(size) != int:
+
+    if not isinstance(size, (int, float)):
         raise TypeError("size must be an integer")
+
+    if isinstance(size, float):
+        if not size.is_integer():
+            raise TypeError("size must be an integer")
+        size = int(size)
+
     if size < 0:
         raise ValueError("size must be >= 0")
-    if size > 0:
-        for row in range(size):
-            for col in range(size):
-                print("#", end="")
-            print()
+
+    for _ in range(size):
+        print("#" * size)
