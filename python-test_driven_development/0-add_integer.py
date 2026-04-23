@@ -21,4 +21,10 @@ def add_integer(a, b=98):
     if b != b:
         raise TypeError("b must be an integer")
 
+    # Infinity check
+    if a == float('inf') or a == float('-inf'):
+        raise TypeError("a must be an integer")
+    if b == float('inf') or b == float('-inf'):
+        raise TypeError("b must be an integer")
+
     return int(a) + int(b)
