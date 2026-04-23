@@ -1,30 +1,11 @@
 #!/usr/bin/python3
-"""
-Module for adding two integers.
-"""
+"""0-add_integer module"""
 
 
 def add_integer(a, b=98):
-    """
-    Adds two integers.
-    """
-
-    if not isinstance(a, (int, float)):
+    """Adds 2 integers"""
+    if type(a) not in (int, float):
         raise TypeError("a must be an integer")
-
-    if not isinstance(b, (int, float)):
+    if type(b) not in (int, float):
         raise TypeError("b must be an integer")
-
-    # NaN check
-    if a != a:
-        raise TypeError("a must be an integer")
-    if b != b:
-        raise TypeError("b must be an integer")
-
-    # Infinity check
-    if a == float('inf') or a == float('-inf'):
-        raise TypeError("a must be an integer")
-    if b == float('inf') or b == float('-inf'):
-        raise TypeError("b must be an integer")
-
     return int(a) + int(b)
