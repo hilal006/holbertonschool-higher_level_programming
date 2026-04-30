@@ -1,23 +1,14 @@
 #!/usr/bin/python3
-# -*- coding: UTF-8 -*-
-"""
-1-square.py: is a class Square that defines a square
-"""
+"""This module defines a Square class."""
 
 
 class Square:
-    """class Square that defines a square
-
-        Attributes:
-        attr1 (size): Size of the Square.
-
-    """
+    """This class defines a square."""
 
     def __init__(self, size=0):
-        """Initializer with default size = 0"""
-        if type(size) is not int:
+        """Initialize square with size."""
+        if not isinstance(size, int):
             raise TypeError("size must be an integer")
         if size < 0:
             raise ValueError("size must be >= 0")
         self.__size = size
-
